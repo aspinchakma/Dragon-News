@@ -6,9 +6,9 @@ import Navbar from "../components/Navbar";
 const MainLayOut = () => {
   const location = useLocation();
   return (
-    <div className="lg:w-[80%] mx-auto w-[95%]">
-      {location.pathname === "/" && <Header />}
-      {location.pathname === "/" && <LatestNews />}
+    <div className="lg:w-[90%] mx-auto w-[95%]">
+      <Header />
+      <LatestNews />
       <Navbar />
       <div>
         <Outlet />
