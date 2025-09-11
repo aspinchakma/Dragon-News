@@ -3,7 +3,7 @@ import RightSide from "../components/RightSide";
 
 const Home = () => {
   return (
-    <div className="grid grid-cols-12">
+    <div className="grid grid-cols-12 gap-5">
       <div className="col-span-9">
         <Outlet />
       </div>

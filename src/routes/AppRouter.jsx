@@ -1,5 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
-import BreakingNews from "../components/BreakingNews";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import CategoryDetails from "../components/CategoryDetails";
 import MainLayOut from "../layouts/MainLayOut";
 import Home from "../pages/Home";
@@ -20,11 +19,15 @@ const AppRouter = createBrowserRouter([
             children: [
               {
                 path: "",
-                element: <BreakingNews />,
+                element: <Navigate to={`/category/01`}></Navigate>,
               },
               {
-                path: "/categories/:id",
+                path: "/category/:id",
                 element: <CategoryDetails />,
+                loader: ({ params }) =>
+                  fetch(
+                    `https://openapi.programming-hero.com/api/news/category/${params.id}`
+                  ),
               },
             ],
           },

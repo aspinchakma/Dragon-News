@@ -12,14 +12,18 @@ const LeftAside = () => {
     };
     loadData();
   }, []);
-  console.log(categories);
   return (
-    <div>
-      <h2>All Categories</h2>
-      <ul>
+    <div className="text-[17px]">
+      <h2 className="text-[20px] mb-3 font-[600] text-[#403f3f]">
+        All Categories
+      </h2>
+      <ul className="text-[#9f9f9f]">
         {categories.map((category) => (
-          <li key={category.category_id}>
-            <NavLink to={`/categories/${category.category_id}`}>
+          <li className="w-full  font-[500]" key={category.category_id}>
+            <NavLink
+              className={`block px-3 py-2`}
+              to={`/category/${category.category_id}`}
+            >
               {category.category_name}
             </NavLink>
           </li>
