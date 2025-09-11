@@ -9,7 +9,7 @@ const Header = () => {
   const day = formatted.split(",")[0];
   const others = formatted.split(",").slice(1, 3);
   return (
-    <div className="text-center lg:my-[30px] my-[20px]">
+    <div className="text-center lg:mt-[30px] lg:mb-[25px] my-[20px]">
       <img
         className="lg:h-[60px] mx-auto"
         src="https://i.ibb.co.com/HvhWTfN/The-Dragon-News.png"
