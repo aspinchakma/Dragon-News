@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const links = (
@@ -10,7 +10,7 @@ const Navbar = () => {
         <NavLink to={`/about`}>About</NavLink>
       </li>
       <li>
-        <NavLink to={`/carrer`}>Carreer</NavLink>
+        <NavLink to={`/career`}>Carreer</NavLink>
       </li>
     </>
   );
@@ -42,13 +42,26 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end gap-2">
+        <div
+          tabIndex={0}
+          role="button"
+          className="btn btn-ghost btn-circle avatar"
+        >
+          <div className="w-10 rounded-full">
+            <img
+              alt="Tailwind CSS Navbar component"
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            />
+          </div>
+        </div>
+        <Link to={`/signin`} className="btn bg-[#403f3f] text-white font-[600]">
+          Login
+        </Link>
       </div>
     </div>
   );

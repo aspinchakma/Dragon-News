@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 
 const MainLayOut = () => {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <div className="lg:w-[80%] mx-auto w-[95%]">
       {location.pathname === "/" && <Header />}

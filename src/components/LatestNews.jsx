@@ -7,7 +7,7 @@ const LatestNews = () => {
       <button className="bg-[#d72050] py-[8px] px-[22px] text-white font-[500]">
         Latest
       </button>
-      <Marquee pauseOnHover className="font-bold space-x-4">
+      <Marquee speed={100} pauseOnHover className="font-bold space-x-4">
         <Link to={`/news`}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </Link>
