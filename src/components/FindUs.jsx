@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 const FindUs = () => {
   return (
     <div>
-      <h3 className="text-xl font-bold mt-[30px] mb-[22px]">Find Us On</h3>
+      <h3 className="text-xl font-semibold mt-[30px] mb-[22px]">Find Us On</h3>
       <div className="text-[#706f6f] font-[500] *:w-full text-[17px]">
         <button className="flex items-center gap-3 border-1 border-[#e7e7e7]  p-4 rounded-t-[6px] cursor-pointer">
           <div className="bg-[#f3f3f3] p-2 rounded-full">

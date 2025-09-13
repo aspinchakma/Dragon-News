@@ -14,7 +14,7 @@ const LeftAside = () => {
   }, []);
   return (
     <div className="text-[17px]">
-      <h2 className="text-[20px] mb-3 font-[600] text-[#403f3f]">
+      <h2 className="text-[20px] mb-3 font-semibold text-[#403f3f]">
         All Categories
       </h2>
       <ul className="text-[#9f9f9f]">
