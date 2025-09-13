@@ -25,7 +25,7 @@ const News = ({ singleNews }) => {
         </div>
       </div>
       <div className="p-4">
-        <h2 className="text-[20px] font-bold">{title}</h2>
+        <h2 className="text-[20px] font-bold mb-6 mt-2">{title}</h2>
         <img src={image_url} alt="" />
         <p>{details.slice(1, 250)}...</p>
         <Link to={`/newDetails/${_id}`} className={`text-[#ff854a] font-bold`}>
