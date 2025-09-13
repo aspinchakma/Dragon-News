@@ -1,4 +1,5 @@
 import FindUs from "./FindUs";
+import QZone from "./QZone";
 import SocialLogin from "./SocialLogin";
 
 const RightSide = () => {
@@ -6,6 +7,7 @@ const RightSide = () => {
     <div>
       <SocialLogin />
       <FindUs />
+      <QZone />
     </div>
   );
 };
