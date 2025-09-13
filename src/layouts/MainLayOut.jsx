@@ -7,11 +7,11 @@ import Navbar from "../components/Navbar";
 const MainLayOut = () => {
   const location = useLocation();
   return (
-    <div className="lg:w-[90%] mx-auto w-[95%]">
+    <div className="lg:w-[90%] mx-auto w-[95%] flex flex-col min-h-screen">
       <Header />
       <LatestNews />
       <Navbar />
-      <div>
+      <div className="flex-1">
         <Outlet />
       </div>
       <Footer />
