@@ -1,5 +1,5 @@
 import { FaArrowLeft } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const NewsDetails = () => {
   const singleNews = useLoaderData().data[0];
@@ -12,10 +12,13 @@ const NewsDetails = () => {
         <img src={image_url} alt="" />
         <h2 className="text-[25px] font-bold mt-5 mb-3">{title}</h2>
         <p>{details}</p>
-        <button className="flex gap-1 items-center bg-[#d72050] px-4 rounded[4px] text-white py-2 font-semibold mt-6">
+        <Link
+          to={`/category/01`}
+          className="flex gap-1 items-center bg-[#d72050] px-4 rounded-[4xl] text-white py-2 font-semibold mt-6 cursor-pointer w-fit"
+        >
           <FaArrowLeft />
           All news in this category
-        </button>
+        </Link>
       </div>
     </div>
   );
