@@ -1,6 +1,16 @@
+import advertisingBg from "../assets/bg.png";
+
 const AdvertisingInHome = () => {
   return (
-    <div className="text-white lg:px-[30px] lg:py-[50px] bg-[url('https://i.ibb.co.com/Myd1hzHQ/bg.png')] bg-no-repeat bg-cover rounded-[4px] text-center">
+    <div
+      style={{
+        backgroundImage: `url(${advertisingBg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        padding: "50px 20px",
+      }}
+      className={`text-white lg:px-[30px] lg:py-[50px]bg-no-repeat bg-cover rounded-[4px] text-center`}
+    >
       <h2 className="text-[30px] font-bold leading-[45px]">
         Create an Amazing Newspaper
       </h2>
