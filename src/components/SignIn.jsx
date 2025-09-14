@@ -1,4 +1,7 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../firebase/firebase.init";
 
@@ -19,6 +22,21 @@ const SignIn = () => {
     // login user
     signInWithEmailAndPassword(auth, user.email, user.password)
       .then((result) => console.log(result.user))
+      .catch((err) => setError(err.code));
+  };
+
+  // handle forget password
+
+  const handleForgetPassword = () => {
+    if (!user.email.length) {
+      setError("Please provide email !");
+      return;
+    }
+
+    sendPasswordResetEmail(auth, user.email)
+      .then(() => {
+        setError("Password reset email sent!");
+      })
       .catch((err) => setError(err.code));
   };
   return (
@@ -52,7 +70,9 @@ const SignIn = () => {
             required
           />
           <div>
-            <a className="link link-hover">Forgot password?</a>
+            <a onClick={handleForgetPassword} className="link link-hover">
+              Forgot password?
+            </a>
           </div>
           <button className="btn btn-neutral mt-4">Login</button>
           <div className="relative">
