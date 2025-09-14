@@ -1,6 +1,8 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import CategoryDetails from "../components/CategoryDetails";
 import NewsDetails from "../components/NewsDetails";
+import SignIn from "../components/SignIn";
+import SignUp from "../components/SignUp";
 import MainLayOut from "../layouts/MainLayOut";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
@@ -54,11 +56,11 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "/signin",
-        element: <h2>This is Sign In</h2>,
+        element: <SignIn />,
       },
       {
         path: "/signup",
-        element: <h3>This is Sign Up</h3>,
+        element: <SignUp />,
       },
     ],
   },
