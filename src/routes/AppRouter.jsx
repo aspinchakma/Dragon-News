@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import CategoryDetails from "../components/CategoryDetails";
 import NewsDetails from "../components/NewsDetails";
 import MainLayOut from "../layouts/MainLayOut";
+import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import MainHome from "./../components/MainHome";
 
@@ -9,6 +10,7 @@ const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
