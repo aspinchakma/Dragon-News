@@ -3,15 +3,31 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [error, setError] = useState("");
-  const handleOnChange = (e) => {};
+  const [user, setUser] = useState({
+    name: "",
+    photo: "",
+    email: "",
+    password: "",
+  });
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
+
+    if (!e.target.checked.checked) {
+      setError("Please select terms and condition!");
+      return;
+    }
+    console.log(user);
   };
   return (
     <div>
       <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto lg:py-[20px]">
-        <form className="card-body py-5" onSubmit={handleSubmit}>
+        <form className="card-body py-0" onSubmit={handleSubmit}>
           <h3 className="text-center text-[24px] font-semibold">
             Register your account
           </h3>
@@ -63,13 +79,13 @@ const SignUp = () => {
             />
             <div></div>
             <label className="label text-[#706f6f] text-[15px]">
-              <input type="checkbox" className="checkbox" />
+              <input type="checkbox" className="checkbox" name="checked" />
               Accept <span className="font-bold">Term & Conditions</span>
             </label>
             <button className="btn btn-neutral mt-4">Register</button>
-            <div className="relative">
+            <div className="relative h-[30px]">
               {error && (
-                <p className="text-center text-red-500 text-[14px] absolute top-1 left-1/2 -translate-x-1/2">
+                <p className="text-center text-red-500 text-[14px] mt-1 font-bold">
                   {error}
                 </p>
               )}

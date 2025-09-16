@@ -45,7 +45,7 @@ const SignIn = () => {
   };
   return (
     <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto lg:py-[50px]">
-      <form className="card-body py-5" onSubmit={handleSubmit}>
+      <form className="card-body py-0" onSubmit={handleSubmit}>
         <h3 className="text-center text-[24px] font-semibold">
           Login your account
         </h3>
@@ -79,9 +79,9 @@ const SignIn = () => {
             </a>
           </div>
           <button className="btn btn-neutral mt-4">Login</button>
-          <div className="relative">
+          <div className="relative h-[30px]">
             {error && (
-              <p className="text-center text-red-500 text-[14px] absolute top-1 left-1/2 -translate-x-1/2">
+              <p className="text-center text-red-500 text-[14px] mt-1 font-bold">
                 {error}
               </p>
             )}
