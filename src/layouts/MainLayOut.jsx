@@ -7,20 +7,27 @@ import Navbar from "../components/Navbar";
 const MainLayOut = () => {
   const location = useLocation();
   return (
-    <div className="lg:w-[90%] mx-auto w-[95%] flex flex-col min-h-screen">
-      {location.pathname !== "/signin" && location.pathname !== "/signup" ? (
-        <>
-          <Header />
-          <LatestNews />
-        </>
-      ) : (
-        ""
-      )}
-      <Navbar />
-      <div className="flex-1">
-        <Outlet />
+    <div
+      className={`${
+        (location.pathname === "/signin" && "bg-[#f3f3f3]") ||
+        (location.pathname === "/signup" && "bg-[#f3f3f3]")
+      }`}
+    >
+      <div className={`lg:w-[90%] mx-auto w-[95%] flex flex-col min-h-screen`}>
+        {location.pathname !== "/signin" && location.pathname !== "/signup" ? (
+          <>
+            <Header />
+            <LatestNews />
+          </>
+        ) : (
+          ""
+        )}
+        <Navbar />
+        <div className="flex-1">
+          <Outlet />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
