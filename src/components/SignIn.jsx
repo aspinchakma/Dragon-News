@@ -41,7 +41,7 @@ const SignIn = () => {
       .catch((err) => setError(err.code));
   };
   return (
-    <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto border-1 border-black lg:py-[50px]">
+    <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto lg:py-[50px]">
       <form className="card-body py-5" onSubmit={handleSubmit}>
         <h3 className="text-center text-[24px] font-semibold">
           Login your account

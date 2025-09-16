@@ -10,7 +10,7 @@ const SignUp = () => {
   };
   return (
     <div>
-      <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto border-1 border-black lg:py-[50px]">
+      <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto lg:py-[20px]">
         <form className="card-body py-5" onSubmit={handleSubmit}>
           <h3 className="text-center text-[24px] font-semibold">
             Register your account
