@@ -62,9 +62,9 @@ const SignUp = () => {
               required
             />
             <div></div>
-            <label className="label">
-              <input type="checkbox" defaultChecked className="checkbox" />
-              Remember me
+            <label className="label text-[#706f6f] text-[15px]">
+              <input type="checkbox" className="checkbox" />
+              Accept <span className="font-bold">Term & Conditions</span>
             </label>
             <button className="btn btn-neutral mt-4">Register</button>
             <div className="relative">

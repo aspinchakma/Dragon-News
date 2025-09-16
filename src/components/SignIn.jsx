@@ -2,13 +2,16 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Contexts/Context";
 import { auth } from "../firebase/firebase.init";
 
 const SignIn = () => {
   const [user, setUser] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const { user: profile } = useContext(AuthContext);
+  console.log(profile);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
