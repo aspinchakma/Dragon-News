@@ -18,7 +18,9 @@ const Navbar = () => {
     </>
   );
   const handleSignOut = () => {
-    userSignOut().then(() => setUser(null));
+    userSignOut().then(() => {
+      setUser(null);
+    });
   };
   return (
     <div className="navbar bg-transparent  mb-6">
