@@ -26,7 +26,9 @@ const SignUp = () => {
     }
     // creating user
     creatingUser(user.email, user.password)
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        // upading user information
+      })
       .catch((err) => {
         if (err.code === "auth/email-already-in-use") {
           setError("Email already exists!");
