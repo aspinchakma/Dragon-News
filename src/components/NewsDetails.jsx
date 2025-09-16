@@ -8,7 +8,7 @@ const NewsDetails = () => {
     <div>
       <div className="border-2 border-[#e7e7e7] rounded-lg p-[30px]">
         <h2 className="text-[20px] font-semibold mb-4 ">Dragon News Home</h2>
-        <img src={image_url} alt="" />
+        <img className="w-full" src={image_url} alt="" />
         <h2 className="text-[25px] font-bold mt-5 mb-3">{title}</h2>
         <p>{details}</p>
         <Link
