@@ -1,5 +1,6 @@
 import {
   createUserWithEmailAndPassword,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -42,6 +43,12 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  // sign in using github
+
+  const githubProvider = new GithubAuthProvider();
+  const signInWithGithub = () => {
+    return signInWithPopup(auth, githubProvider);
+  };
   // user sign out
 
   const userSignOut = () => {
@@ -55,6 +62,7 @@ const AuthProvider = ({ children }) => {
     setUser,
     loading,
     signInWithGoogle,
+    signInWithGithub,
   };
   return (
     <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>

@@ -3,7 +3,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Contexts/Context";
 
 const SocialLogin = () => {
-  const { signInWithGoogle } = useContext(AuthContext);
+  const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
   return (
     <div>
       <h3 className="font-semibold text-[20px]">Login With</h3>
@@ -13,7 +13,10 @@ const SocialLogin = () => {
       >
         <FaGoogle className="text-[18px]" /> Login with Google
       </button>
-      <button className="w-full flex justify-center items-center gap-2 border-2 border-black py-2 rounded-[4px]">
+      <button
+        onClick={signInWithGithub}
+        className="w-full flex justify-center items-center gap-2 border-2 border-black py-2 rounded-[4px]"
+      >
         <FaGithub className="text-[18px]" />
         Login with Github
       </button>
