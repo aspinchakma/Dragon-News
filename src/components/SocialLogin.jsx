@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../Contexts/Context";
 
 const SocialLogin = () => {
+  const { signInWithGoogle } = useContext(AuthContext);
   return (
     <div>
       <h3 className="font-semibold text-[20px]">Login With</h3>
-      <button className="w-full flex justify-center items-center gap-2 border-2 border-[#366bdd] py-2 text-[#366bdd] mt-4 mb-2 rounded-[4px]">
+      <button
+        onClick={signInWithGoogle}
+        className="w-full flex justify-center items-center gap-2 border-2 border-[#366bdd] py-2 text-[#366bdd] mt-4 mb-2 rounded-[4px]"
+      >
         <FaGoogle className="text-[18px]" /> Login with Google
       </button>
       <button className="w-full flex justify-center items-center gap-2 border-2 border-black py-2 rounded-[4px]">
