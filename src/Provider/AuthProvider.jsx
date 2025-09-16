@@ -25,6 +25,8 @@ const AuthProvider = ({ children }) => {
         setUser(userInfo);
       }
     });
+
+    // cleanup function
     return () => unSubscribed();
   }, []);
 
