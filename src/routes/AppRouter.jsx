@@ -7,6 +7,7 @@ import MainLayOut from "../layouts/MainLayOut";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import MainHome from "./../components/MainHome";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRouter = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ const AppRouter = createBrowserRouter([
           },
           {
             path: "/newDetails/:id",
-            element: <NewsDetails />,
+            element: (
+              <PrivateRoute>
+                <NewsDetails />
+              </PrivateRoute>
+            ),
             loader: ({ params }) =>
               fetch(
                 `https://openapi.programming-hero.com/api/news/${params.id}`

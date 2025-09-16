@@ -9,6 +9,7 @@ import { AuthContext } from "../Contexts/Context";
 import { auth } from "../firebase/firebase.init";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   // sign in
   const handleSignInEmailAndPassword = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
@@ -25,6 +26,8 @@ const AuthProvider = ({ children }) => {
       if (userInfo) {
         setUser(userInfo);
       }
+      // stop loading
+      setLoading(false);
     });
 
     // cleanup function
@@ -43,6 +46,7 @@ const AuthProvider = ({ children }) => {
     creatingUser,
     userSignOut,
     setUser,
+    loading,
   };
   return (
     <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>
