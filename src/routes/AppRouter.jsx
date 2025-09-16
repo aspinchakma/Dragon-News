@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import CategoryDetails from "../components/CategoryDetails";
+import Loading from "../components/Loading";
 import NewsDetails from "../components/NewsDetails";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
@@ -34,6 +35,7 @@ const AppRouter = createBrowserRouter([
                   fetch(
                     `https://openapi.programming-hero.com/api/news/category/${params.id}`
                   ),
+                hydrateFallbackElement: <Loading />,
               },
             ],
           },
@@ -48,6 +50,7 @@ const AppRouter = createBrowserRouter([
               fetch(
                 `https://openapi.programming-hero.com/api/news/${params.id}`
               ),
+            hydrateFallbackElement: <Loading />,
           },
         ],
       },
