@@ -3,6 +3,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { auth } from "../firebase/firebase.init";
 
 const SignIn = () => {
@@ -40,12 +41,12 @@ const SignIn = () => {
       .catch((err) => setError(err.code));
   };
   return (
-    <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto border-1 border-black lg:py-[30px]">
-      <form className="card-body" onSubmit={handleSubmit}>
+    <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto border-1 border-black lg:py-[50px]">
+      <form className="card-body py-5" onSubmit={handleSubmit}>
         <h3 className="text-center text-[24px] font-semibold">
           Login your account
         </h3>
-        <div className="divider h-[1px]"></div>
+        <div className="divider h-[1px] border-0"></div>
         <fieldset className="fieldset">
           <label className="label text-[17px] mb-2 font-semibold text-[#403f3f]">
             Email
@@ -77,13 +78,19 @@ const SignIn = () => {
           <button className="btn btn-neutral mt-4">Login</button>
           <div className="relative">
             {error && (
-              <p className="text-center text-red-500 text-[14px] absolute top-3 left-1/2 -translate-x-1/2">
+              <p className="text-center text-red-500 text-[14px] absolute top-1 left-1/2 -translate-x-1/2">
                 {error}
               </p>
             )}
           </div>
         </fieldset>
       </form>
+      <p className="text-center text-[#706f6f] font-semibold">
+        Dont’t Have An Account ?{" "}
+        <Link className="text-[#f9655b]" to={`/signup`}>
+          Register
+        </Link>
+      </p>
     </div>
   );
 };
