@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Contexts/Context";
 
 const SignUp = () => {
   const [error, setError] = useState("");
@@ -9,6 +10,7 @@ const SignUp = () => {
     email: "",
     password: "",
   });
+  const { creatingUser } = useContext(AuthContext);
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -22,11 +24,18 @@ const SignUp = () => {
       setError("Please select terms and condition!");
       return;
     }
-    console.log(user);
+    // creating user
+    creatingUser(user.email, user.password)
+      .then((result) => console.log(result.user))
+      .catch((err) => {
+        if (err.code === "auth/email-already-in-use") {
+          setError("Email already exists!");
+        }
+      });
   };
   return (
     <div>
-      <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto lg:py-[20px]">
+      <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto lg:py-[40px]">
         <form className="card-body py-0" onSubmit={handleSubmit}>
           <h3 className="text-center text-[24px] font-semibold">
             Register your account

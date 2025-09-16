@@ -1,7 +1,4 @@
-import {
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Contexts/Context";
@@ -10,21 +7,19 @@ import { auth } from "../firebase/firebase.init";
 const SignIn = () => {
   const [user, setUser] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const { user: profile } = useContext(AuthContext);
-  console.log(profile);
+  const { handleSignInEmailAndPassword } = useContext(AuthContext);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setError("");
 
     // login user
-    signInWithEmailAndPassword(auth, user.email, user.password)
+    handleSignInEmailAndPassword(user.email, user.password)
       .then((result) => console.log(result.user))
       .catch((err) => setError(err.code));
   };
@@ -44,7 +39,7 @@ const SignIn = () => {
       .catch((err) => setError(err.code));
   };
   return (
-    <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto lg:py-[50px]">
+    <div className="card bg-base-100 w-full  shrink-0 max-w-[452px] mx-auto lg:py-[40px]">
       <form className="card-body py-0" onSubmit={handleSubmit}>
         <h3 className="text-center text-[24px] font-semibold">
           Login your account
