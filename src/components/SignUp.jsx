@@ -1,6 +1,8 @@
+import { updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/Context";
+import { auth } from "../firebase/firebase.init";
 
 const SignUp = () => {
   const [error, setError] = useState("");
@@ -10,14 +12,13 @@ const SignUp = () => {
     email: "",
     password: "",
   });
-  const { creatingUser } = useContext(AuthContext);
+  const { creatingUser, setUser: setUserData } = useContext(AuthContext);
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
@@ -29,7 +30,18 @@ const SignUp = () => {
     // creating user
     creatingUser(user.email, user.password)
       .then((result) => {
-        navigate(location.state);
+        // update profile
+        updateProfile(auth.currentUser, {
+          displayName: user.name,
+          photoURL: user.photo,
+        })
+          .then(() => {
+            setUserData(result.user);
+            navigate(location.state);
+          })
+          .catch((err) => {
+            setError(err.code);
+          });
       })
       .catch((err) => {
         if (err.code === "auth/email-already-in-use") {

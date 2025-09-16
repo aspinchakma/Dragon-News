@@ -63,17 +63,24 @@ const Navbar = () => {
           <div className="w-10 rounded-full">
             <img
               alt="Tailwind CSS Navbar component"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              src={`${
+                user
+                  ? user?.photoURL
+                  : "https://i.ibb.co.com/NdC6D2X6/default-profile.png"
+              }`}
             />
           </div>
         </div>
         {user ? (
-          <button
-            onClick={handleSignOut}
-            className="btn bg-[#403f3f] text-white font-[600]"
-          >
-            Log Out
-          </button>
+          <div className="flex items-center gap-3">
+            <h2 className="font-bold">{user?.displayName}</h2>
+            <button
+              onClick={handleSignOut}
+              className="btn bg-[#403f3f] text-white font-[600]"
+            >
+              Log Out
+            </button>
+          </div>
         ) : (
           <Link
             to={`/signin`}
