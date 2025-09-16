@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/Context";
 
 const SignUp = () => {
@@ -15,7 +15,9 @@ const SignUp = () => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
-
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
@@ -27,7 +29,7 @@ const SignUp = () => {
     // creating user
     creatingUser(user.email, user.password)
       .then((result) => {
-        // upading user information
+        navigate(location.state);
       })
       .catch((err) => {
         if (err.code === "auth/email-already-in-use") {

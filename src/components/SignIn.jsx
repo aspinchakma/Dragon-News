@@ -90,7 +90,7 @@ const SignIn = () => {
       </form>
       <p className="text-center text-[#706f6f] font-semibold">
         Dont’t Have An Account ?{" "}
-        <Link className="text-[#f9655b]" to={`/signup`}>
+        <Link state={from} className="text-[#f9655b]" to={`/signup`}>
           Register
         </Link>
       </p>
