@@ -39,7 +39,6 @@ const AuthProvider = ({ children }) => {
   const userSignOut = () => {
     return signOut(auth);
   };
-  console.log(user);
   const authData = {
     user,
     handleSignInEmailAndPassword,

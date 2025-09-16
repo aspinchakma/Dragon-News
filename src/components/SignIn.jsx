@@ -1,6 +1,6 @@
 import { sendPasswordResetEmail } from "firebase/auth";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/Context";
 import { auth } from "../firebase/firebase.init";
 
@@ -8,6 +8,9 @@ const SignIn = () => {
   const [user, setUser] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const { handleSignInEmailAndPassword } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +23,9 @@ const SignIn = () => {
 
     // login user
     handleSignInEmailAndPassword(user.email, user.password)
-      .then((result) => console.log(result.user))
+      .then(() => {
+        navigate(from, { replace: true });
+      })
       .catch((err) => setError(err.code));
   };
 
